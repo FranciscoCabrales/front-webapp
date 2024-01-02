@@ -32,7 +32,11 @@ loginForm = this.fb.group({
       .subscribe( resp => {
         
         console.log(resp,"respuesta");
+       
 
+        // Navegar al Dashboard
+        this.router.navigateByUrl('/dashboard');
+        
       }, (err) => {
         // Si sucede un error
         Swal.fire('Error', err.error.msg, 'error' );

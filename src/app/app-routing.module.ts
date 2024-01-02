@@ -11,21 +11,19 @@ import { PagesComponent } from './pages/pages.component';
 
 const routes: Routes = [
   //rutas hijas//
-  {path: '', 
-  component: PagesComponent,
-  children: [
-    { path: 'dashboard', component: DashboardComponent},
-    { path: 'users', component: UsersComponent},
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full'},  //redirecciona automaticamente//
-  ]
-}, //rutas protegidas//
-  
-//rutas publicas//
-  { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent},
-  
-  
-  { path: '**', component: NopagefoundComponent},  //redirecciona si no encuentra el sitio//
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  {
+    path: '',
+    component: PagesComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'users', component: UsersComponent },
+      { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+    ]
+  },
+  { path: '**', component: NopagefoundComponent }
 ]
 
 
